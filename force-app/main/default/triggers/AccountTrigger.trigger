@@ -19,6 +19,9 @@ switch on Trigger.operationType {
                 account.BillingPostalCode = account.ShippingPostalCode;
                 account.BillingCountry    = account.ShippingCountry;
         }
+            If (account.Phone != null && account.Fax != null && account.Website != null ) {
+                account.rating= 'Hot';
+            }
         }
     }
 
