@@ -24,6 +24,18 @@ switch on Trigger.operationType {
             }
         }
     }
+    when AFTER_INSERT {
+        List <Contact> defaultContactsToInsert =new List<Contact>();
+        For (Account account : Trigger.new) {
+            Contact defaultContact = new Contact();
+            defaultContact.LastName = 'DefaultContact';
+            defaultContact.AccountId = account.Id;
+            defaultContact.Email= 'default@email.com';
+            DefaultContactsToInsert.add(defaultContact);
+            }
+        insert defaultContactsToInsert;
 
-}
+    }
+
+} 
 } 
